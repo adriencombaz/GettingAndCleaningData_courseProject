@@ -1,6 +1,6 @@
-setwd("/home/adrien/Work/Training/data-scientist-specialization/03-Getting-and-Cleaning-Data/GettingAndCleaningData_courseProject/")
 rm(list = ls())
-dataDir <- "UCI HAR Dataset"
+dataDir <- file.path("/home/adrien/Work/Data/mooc/data-scientist-specialization/assignment-data/03-Getting-and-Cleaning-Data/GettingAndCleaningData_courseProject/"
+                     , "UCI HAR Dataset")
 
 #=======================================================================================================
 # Merges the training and the test sets to create one data set
@@ -47,6 +47,6 @@ str(data)
 data2 <- aggregate(. ~ subjectID + activityLabel, data=data, mean)
 
 # Write the resulting data set in a text file
-write.table(data2, "tidy_data.txt", row.name=FALSE)
+write.table( data2,  file.path( dataDir, "tidy_data.txt" ), row.name=FALSE )
 
 
